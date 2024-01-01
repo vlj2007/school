@@ -1,9 +1,15 @@
 package ru.hogwarts.school.controller;
-
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
+
+
 @RestController
+@RequestMapping("students")
 public class StudentController {
 
     private final StudentService studentService;
@@ -11,6 +17,21 @@ public class StudentController {
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
+
+    @PostMapping //POST localhost:8080/students/1
+    public Student createStudent(Student student) {
+        return  studentService.createdStudent(student);
+    }
+
+    @GetMapping("{id}") //GET localhost:8080/books/1
+    public Student getStudentInfo(@PathVariable long id){
+        return  studentService.findStudent(id);
+    }
+
+
+
+
+
 
 
 

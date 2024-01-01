@@ -11,19 +11,25 @@ public class StudentService {
     private final HashMap<Long, Student> students = new HashMap<>();
     private long lastId = 0;
 
-
     public Student createdStudent(Student student) {
         student.setId(++lastId);
         students.put(lastId, student);
-        return null;
+        return student;
     }
 
-    public Student findAllStudents(){
-        return null;
+    public Student findStudent(Long id) {
+        return students.get(id);
 
     }
 
+    public Student editStudent(Student student) {
+        students.put(student.getId(), student);
+        return student;
 
+    }
 
+    public Student deleteStudent(long id) {
+        return students.remove(id);
+    }
 
 }

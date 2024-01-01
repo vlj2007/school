@@ -18,7 +18,18 @@ public class FacultyService {
         return faculty;
     }
 
+    public Faculty findFaculty(Long id) {
+        return facults.get(id);
+    }
 
+    public Faculty editFaculty(Faculty faculty) {
+        facults.put(faculty.getId(), faculty);
+        return faculty;
+    }
+
+    public Faculty deleteFaculty(long id) {
+        return facults.remove(id);
+    }
 
 
 }
