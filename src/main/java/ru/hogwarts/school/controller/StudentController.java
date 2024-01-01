@@ -23,7 +23,7 @@ public class StudentController {
         return  studentService.createdStudent(student);
     }
 
-    @GetMapping("{id}") //GET localhost:8080/books/1
+    @GetMapping("{id}") //GET localhost:8080/students/1
     public Student getStudentInfo(@PathVariable long id){
         return  studentService.findStudent(id);
     }
