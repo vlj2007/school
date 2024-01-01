@@ -28,6 +28,20 @@ public class StudentController {
         return  studentService.findStudent(id);
     }
 
+    @PutMapping //PUT localhost:8080/students/1
+    public Student editStudent(Student student) {
+        return  studentService.editStudent(student);
+    }
+
+    @DeleteMapping //DELETE localhost:8080/students/1
+    public Student deleteStudent(@PathVariable long id) {
+        return  studentService.deleteStudent(id);
+    }
+
+
+
+
+
 
 
 
