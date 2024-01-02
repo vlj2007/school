@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
-
+import java.util.Collection;
 
 @RestController
 @RequestMapping("students")
@@ -37,6 +37,18 @@ public class StudentController {
     public Student deleteStudent(@PathVariable long id) {
         return  studentService.deleteStudent(id);
     }
+
+    @GetMapping(path = "/find")
+    public Collection<Student> getStudents(){
+        return studentService.showAllStudents();
+    }
+
+ //   @DeleteMapping //DELETE localhost:8080/students
+ //   public Student deleteAllStudent(Student student) {
+  //      return  studentService.deleteStudent(student);
+   // }
+
+
 
 
 

@@ -4,12 +4,15 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.api.IStudent;
 import ru.hogwarts.school.model.Student;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class StudentService implements IStudent {
 
-    private final HashMap<Long, Student> students = new HashMap<>();
+    private Map<Long, Student> students = new HashMap<>();
     private long lastId = 0;
 
     @Override
@@ -38,6 +41,23 @@ public class StudentService implements IStudent {
     }
 
 
+    @Override
+    public Collection<Student> showAllStudents() {
+        return Collections.unmodifiableMap(students).values();
+    }
 
+    @Override
+    public Student deleteAllStudents(Student student) {
+        return null;
+        //return students.clear(student);
+    }
+    
+    public void clear() {
+        students.clear();
+    }
+
+    public int size() {
+        return students.size();
+    }
 
 }
