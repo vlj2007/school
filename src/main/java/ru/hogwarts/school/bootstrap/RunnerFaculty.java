@@ -16,9 +16,14 @@ public class RunnerFaculty implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        facults.createdFaculty(new Faculty(0L, "Vladislav", "blue"));
-        facults.createdFaculty(new Faculty(1L, "Sergey", "black"));
-        facults.createdFaculty(new Faculty(2L, "Evgeniy", "white"));
+        facults.createdFaculty(new Faculty(0L, "Биологический", "blue"));
+        facults.createdFaculty(new Faculty(1L, "Военный", "black"));
+        facults.createdFaculty(new Faculty(2L, "журналистики", "white"));
+        facults.createdFaculty(new Faculty(3L, "Исторический", "blue"));
+        facults.createdFaculty(new Faculty(4L, "Механико-математический", "black"));
+        facults.createdFaculty(new Faculty(5L, "Медицинский", "red"));
+        facults.createdFaculty(new Faculty(6L, "Юридический", "black"));
+        facults.createdFaculty(new Faculty(7L, "Теологический", "green"));
     }
     
 }
