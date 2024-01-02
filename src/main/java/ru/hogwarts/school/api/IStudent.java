@@ -10,5 +10,5 @@ public interface IStudent {
     Student editStudent(Student student);
     Student deleteStudent(long id);
     Collection<Student> showAllStudents();
-    Student deleteAllStudents(Student student);
+//    Student deleteAllStudents(Student student);
 }

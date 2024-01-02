@@ -25,14 +25,12 @@ public class StudentService implements IStudent {
     @Override
     public Student findStudent(Long id) {
         return students.get(id);
-
     }
 
     @Override
     public Student editStudent(Student student) {
         students.put(student.getId(), student);
         return student;
-
     }
 
     @Override
@@ -40,17 +38,16 @@ public class StudentService implements IStudent {
         return students.remove(id);
     }
 
-
     @Override
     public Collection<Student> showAllStudents() {
         return Collections.unmodifiableMap(students).values();
     }
 
-    @Override
-    public Student deleteAllStudents(Student student) {
-        return null;
+//    @Override
+//    public Student deleteAllStudents(Student student) {
+//        return null;
         //return students.clear(student);
-    }
+//    }
     
     public void clear() {
         students.clear();
@@ -59,5 +56,12 @@ public class StudentService implements IStudent {
     public int size() {
         return students.size();
     }
+
+//    public Student getStudentByName(Student student) {
+//        boolean st1 = students.containsValue(student);
+//        return st1;
+//    }
+
+
 
 }
