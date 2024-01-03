@@ -26,6 +26,7 @@ public class StudentService implements IStudent {
         return students.get(id);
     }
 
+
     @Override
     public Student editStudent(Student student) {
 
@@ -47,11 +48,10 @@ public class StudentService implements IStudent {
         return Collections.unmodifiableMap(students).values();
     }
 
-//    @Override
-//    public Student deleteAllStudents(Student student) {
-//        return null;
-        //return students.clear(student);
-//    }
+    @Override
+    public Student deleteAllStudents(Student student) {
+        return students.r
+    }
     
     public void clear() {
         students.clear();

@@ -1,4 +1,5 @@
 package ru.hogwarts.school.controller;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
 import java.util.Collection;
+import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("students")
@@ -23,19 +25,28 @@ public class StudentController {
         return  studentService.createdStudent(student);
     }
 
-    @GetMapping("{id}") //GET localhost:8080/students/1
-    public Student getStudentInfo(@PathVariable long id){
-        return  studentService.findStudent(id);
+    @GetMapping("{id}")
+    public ResponseEntity<Student> getStudentInfo(@PathVariable Long id){
+        Student student = studentService.findStudent(id);
+        if (student == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(student);
     }
 
     @PutMapping //PUT localhost:8080/students/1
-    public Student editStudent(Student student) {
-        return  studentService.editStudent(student);
+    public ResponseEntity<Student> editStudent(@RequestBody Student student){
+        Student foundStudent = studentService.editStudent(student);
+        if (foundStudent == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.ok(foundStudent);
     }
 
-    @DeleteMapping //DELETE localhost:8080/students/1
-    public Student deleteStudent(@PathVariable long id) {
-        return  studentService.deleteStudent(id);
+    @DeleteMapping("{id}") //DELETE localhost:8080/students/1
+    public ResponseEntity<Void> deleteStudent(@PathVariable long id) {
+        studentService.deleteStudent(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(path = "/find")
