@@ -7,18 +7,17 @@ import ru.hogwarts.school.model.Student;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class StudentService implements IStudent {
 
-    private Map<Long, Student> students = new HashMap<>();
-    private long lastId = 0;
+    private HashMap<Long, Student> students = new HashMap<>();
+    private long count = 0;
 
     @Override
     public Student createdStudent(Student student) {
-        student.setId(++lastId);
-        students.put(lastId, student);
+        student.setId(++count);
+        students.put(student.getId(), student);
         return student;
     }
 
@@ -29,6 +28,11 @@ public class StudentService implements IStudent {
 
     @Override
     public Student editStudent(Student student) {
+
+        if (!students.containsKey(student.getId())) {
+            return null;
+        }
+
         students.put(student.getId(), student);
         return student;
     }

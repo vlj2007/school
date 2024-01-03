@@ -10,29 +10,34 @@ import java.util.HashMap;
 @Service
 public class FacultyService implements IFaculty {
 
-    private final HashMap<Long, Faculty> facults = new HashMap<>();
-    private long lastId = 0;
+    private final HashMap<Long, Faculty> faculties = new HashMap<>();
+    private long count = 0;
     @Override
     public Faculty createdFaculty(Faculty faculty) {
-        faculty.setId(++lastId);
-        facults.put(lastId, faculty);
+        faculty.setId(++count);
+        faculties.put(faculty.getId(), faculty);
         return faculty;
     }
 
     @Override
     public Faculty findFaculty(Long id) {
-        return facults.get(id);
+        return faculties.get(id);
     }
 
     @Override
     public Faculty editFaculty(Faculty faculty) {
-        facults.put(faculty.getId(), faculty);
+
+        if (!faculties.containsKey(faculty.getId())) {
+            return null;
+        }
+
+        faculties.put(faculty.getId(), faculty);
         return faculty;
     }
 
     @Override
     public Faculty deleteFaculty(long id) {
-        return facults.remove(id);
+        return faculties.remove(id);
     }
 
 
