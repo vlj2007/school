@@ -8,6 +8,9 @@ public class Student {
     String name;
     int age;
 
+    public Student() {
+    }
+
     public Student(Long id, String name, int age) {
         this.id = id;
         this.name = name;

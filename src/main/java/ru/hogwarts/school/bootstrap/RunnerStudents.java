@@ -12,16 +12,16 @@ public class RunnerStudents implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        students.createdStudent(new Student(0L, "Vladislav", 23));
+        students.createdStudent(new Student(0L, "Vladislav", 21));
         students.createdStudent(new Student(1L, "Sergey", 23));
-        students.createdStudent(new Student(2L, "Evgeniy", 23));
-        students.createdStudent(new Student(3L, "Vladimir", 23));
-        students.createdStudent(new Student(4L, "Anna", 23));
-        students.createdStudent(new Student(5L, "Vasiliy", 23));
-        students.createdStudent(new Student(6L, "Elisoveta", 23));
-        students.createdStudent(new Student(7L, "Aliena", 23));
-        students.createdStudent(new Student(8L, "Stanislav", 23));
-        students.createdStudent(new Student(9L, "Irina", 23));
+        students.createdStudent(new Student(2L, "Evgeniy", 22));
+        students.createdStudent(new Student(3L, "Vladimir", 24));
+        students.createdStudent(new Student(4L, "Anna", 21));
+        students.createdStudent(new Student(5L, "Vasiliy", 26));
+        students.createdStudent(new Student(6L, "Elisoveta", 20));
+        students.createdStudent(new Student(7L, "Aliena", 21));
+        students.createdStudent(new Student(8L, "Stanislav", 24));
+        students.createdStudent(new Student(9L, "Irina", 22));
     }
 
 
